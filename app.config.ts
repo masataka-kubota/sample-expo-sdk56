@@ -44,6 +44,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ios: {
     icon: './assets/expo.icon',
     bundleIdentifier: variantConfig.bundleIdentifier,
+    infoPlist: {
+      ITSAppUsesNonExemptEncryption: false,
+    },
   },
   android: {
     adaptiveIcon: {
@@ -73,5 +76,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   experiments: {
     typedRoutes: true,
     reactCompiler: true,
+  },
+  extra: {
+    eas: {
+      projectId: '542a9a8a-d4a6-419f-856a-7d570db0da91',
+    },
   },
 });
