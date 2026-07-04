@@ -83,7 +83,7 @@ Upon completion, an `.ipa` (or simulator build) will be generated, ready to run 
 
 ```bash
 bun run lint
-bun run lint:format # Automatic fixing
+bun run lint:fix # Automatic fixing
 ```
 
 ### Format with oxfmt

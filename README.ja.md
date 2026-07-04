@@ -76,7 +76,7 @@ eas build --local --platform ios --profile development
 
 ```bash
 bun run lint
-bun run lint:format # oxlint による自動修正
+bun run lint:fix # 自動修正
 ```
 
 ### oxfmt によるコード整形
