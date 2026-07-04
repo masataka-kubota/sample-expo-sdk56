@@ -86,4 +86,4 @@ bun run format
 bun run format:check # oxfmt によるチェック
 ```
 
-これらは、コミット時に `husky` と `lint-staged` を通じて自動的にも実行されます。
+これらは、コミット時に `husky` と `lint-staged` を通じて自動的にも実行されます（事前に `bun install` でフックを有効化してください）。

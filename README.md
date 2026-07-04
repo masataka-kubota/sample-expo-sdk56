@@ -93,4 +93,4 @@ bun run format
 bun run format:check # Dry-run format check
 ```
 
-These checks are also triggered automatically during your `git commit` process via Husky.
+These checks are also triggered automatically during your `git commit` process via Husky (after enabling hooks once with `bun install`).
