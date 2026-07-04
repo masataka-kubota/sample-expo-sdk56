@@ -12,12 +12,14 @@
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
     "format": "oxfmt .",
-    "format:check": "oxfmt --check ."
+    "format:check": "oxfmt --check .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@expo/ui": "~56.0.19",
     "expo": "~56.0.13",
     "expo-constants": "~56.0.19",
+    "expo-dev-client": "~56.0.22",
     "expo-device": "~56.0.4",
     "expo-font": "~56.0.7",
     "expo-glass-effect": "~56.0.4",
@@ -41,6 +43,8 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "oxfmt": "^0.57.0",
     "oxlint": "^1.72.0",
     "oxlint-config-universe": "^0.0.3",
