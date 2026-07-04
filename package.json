@@ -41,6 +41,8 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "oxfmt": "^0.57.0",
     "oxlint": "^1.72.0",
     "oxlint-config-universe": "^0.0.3",
