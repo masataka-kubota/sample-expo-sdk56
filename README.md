@@ -1,56 +1,96 @@
-# Welcome to your Expo app 👋
+# Expo SDK 56 Sample App 🚀
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository is a sandbox environment designed to experiment with and verify the features and behavior of **Expo SDK 56**.
 
-## Get started
+It features a modern React Native configuration, including dynamic environment swapping via TypeScript configuration (`app.config.ts`), local EAS builds (`eas.json`), and ultra-fast static analysis tools (`oxlint` and `oxfmt`).
 
-1. Install dependencies
+For the Japanese version of this document, see [README.ja.md](./README.ja.md).
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 🛠 Key Features & Installed Tools
 
-   ```bash
-   npx expo start
-   ```
+- **Expo SDK 56** & React Native 0.85
+- **Dynamic Configuration (`app.config.ts`)**: Dynamically switches app name and bundle identifier (`development` / `preview` / `production`) based on the `APP_VARIANT` environment variable.
+- **EAS Build Ready (`eas.json`)**: Pre-configured build profiles. Local building (`eas build --local`) has been fully verified and is ready to use.
+- **Ultra-fast Linting & Formatting**:
+  - `oxlint` & `oxlint-config-universe` (for extremely fast static analysis)
+  - `oxfmt` (for blazing-fast code formatting)
+- **Pre-commit Automation**: Managed via `husky` & `lint-staged` to automatically run linter/formatter on staged files and prevent direct commits to protected branches (like `main`/`develop`).
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🚀 Getting Started
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 1. Install Dependencies
 
-## Get a fresh project
-
-When you're ready, run:
+Using `bun` is recommended for this project:
 
 ```bash
-npm run reset-project
+bun install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Set Up Environment Variables
 
-### Other setup steps
+Copy the example file to create your local environment configuration:
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+cp .env.example .env.local
+```
 
-## Learn more
+### 3. Start the Development Server
 
-To learn more about developing your project with Expo, look at the following resources:
+To start the Expo development server under the `development` variant:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+bun run start
+```
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 📦 Local EAS Builds
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project has been tested and verified to work with local EAS builds.
+
+### Push Environment Variables to Expo Dashboard
+
+```bash
+eas env:push
+# Choose `development` when prompted
+```
+
+### Build Android App Locally (.apk)
+
+```bash
+eas build --local --platform android --profile development
+```
+
+Upon completion, an `.apk` file will be generated in your project root, which can be installed on an emulator or a physical device.
+
+### Build iOS App Locally (.ipa)
+
+```bash
+eas build --local --platform ios --profile development
+```
+
+Upon completion, an `.ipa` (or simulator build) will be generated, ready to run on your device or simulator.
+
+---
+
+## 🧹 Code Quality (Linting & Formatting)
+
+### Lint with oxlint
+
+```bash
+bun run lint
+bun run lint:format # Automatic fixing
+```
+
+### Format with oxfmt
+
+```bash
+bun run format
+bun run format:check # Dry-run format check
+```
+
+These checks are also triggered automatically during your `git commit` process via Husky.
